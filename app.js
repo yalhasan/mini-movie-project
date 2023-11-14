@@ -7,8 +7,8 @@ const actorRoutes = require("./api/actor/routes");
 const reviewRoutes = require("./api/review/routes");
 const { errorHandler } = require("./middlewares/errorHandler");
 const { notFound } = require("./middlewares/notFoundMiddleware");
+const config = require("./config");
 const app = express();
-require("dotenv").config();
 
 connectDB();
 app.use(express.json());
@@ -20,6 +20,6 @@ app.use("/review", reviewRoutes);
 app.use(errorHandler);
 app.use(notFound);
 
-app.listen(8000, () => {
-  console.log("The application is running on localhost:8000");
+app.listen(config.PORT, () => {
+  console.log("The application is running on localhost", config.PORT);
 });

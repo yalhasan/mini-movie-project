@@ -8,12 +8,3 @@ exports.reviewRead = async (req, res, next) => {
     next(error);
   }
 };
-
-exports.reviewCreate = async (req, res, next) => {
-  try {
-    const newReview = await Reviews.create(req.body);
-    res.status(200).json(newReview);
-  } catch (error) {
-    next(error);
-  }
-};
